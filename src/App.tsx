@@ -73,7 +73,7 @@ const PureTaskComponment: FC<PureTaskComponmentProps> = ({
                 <Title heading={2}><a href="https://wiki-migrate.lzpsap1.com/index">任务管理小应用</a></Title>
             </div>
             <div>
-                <Text><a href="http://127.0.0.1:5173/src/index.html">描述：</a></Text>
+                <Text><a href="http://localhost:9000/">描述：</a></Text>
                 <Text>{description}</Text>
             </div>
             <div>
