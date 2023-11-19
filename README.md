@@ -10,10 +10,10 @@
 ├── public
 │   └── index.html
 ├── src
-│   ├── App.tsx // 主要组件
+│   ├── App.js // 主要组件
 │   ├── bitableApp.ts // 实例化 sdk
-│   ├── index.tsx // 入口文件
-│   └── utils.ts // 工具方法
+│   ├── index.js // 入口文件
+│   └── utils.js // 工具方法
 ├── block.json // 小组件元信息
 ├── README.md // 说明文件
 └── tsconfig.json // ts config

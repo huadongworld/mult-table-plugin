@@ -14,7 +14,7 @@ const isDevelopment = process.env.NODE_ENV === 'development';// 判断是否为�
 const isProduction = process.env.NODE_ENV === 'production';// 判断是否为生产环境
 
 const config = {
-    entry: './src/index.tsx',// 指定入口文件路径
+    entry: './src/index.js',// 指定入口文件路径
     devtool: isProduction ? false : 'inline-source-map',// 根据环境选择是否启用源映射
     mode: isDevelopment ? 'development' : 'production',// 根据环境设置构建模式
     stats: 'errors-only',// 配置编译输出的统计信息显示级别，只展示错误信息
