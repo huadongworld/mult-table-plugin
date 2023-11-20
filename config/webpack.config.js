@@ -7,7 +7,9 @@ const WebpackBar = require('webpackbar');// 引入用于显示构建进度的插
 const {
     BitableAppWebpackPlugin,
     opdevMiddleware
-} = require('@lark-opdev/block-bitable-webpack-utils');// 引入用于多维表格功能的插件和中间件
+} = require('@lark-opdev/block-bitable-webpack-utils');
+const {VueLoaderPlugin} = require("vue-loader");
+// 引入用于多维表格功能的插件和中间件
 
 const cwd = process.cwd();// 获取当前工作目录的路径
 const isDevelopment = process.env.NODE_ENV === 'development';// 判断是否为开发环境
@@ -25,6 +27,10 @@ const config = {
     },
     module: {
         rules: [
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+            },
             {
                 test: /\.js$/,// 匹配以 .js 结尾的文件
                 include: [/node_modules\/@lark-open/],// 指定需要处理的文件路径
@@ -85,9 +91,10 @@ const config = {
             template: './public/index.html',// 指定 HTML 模板文件
             publicPath: isDevelopment ? '/block/' : './',// 设置公共资源的路径
         }),// 用于生成 HTML 文件的插件
+        new VueLoaderPlugin()
     ],
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.jsx'],// 配置模块解析时自动补全的扩展名
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue'],// 配置模块解析时自动补全的扩展名
     },
     optimization: {
         minimize: isProduction,// 根据环境设置是否压缩代码

@@ -1,7 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { App } from "./App";
+import Vue from 'vue';
+import App from './App.vue';
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-    React.createElement(React.StrictMode, null, React.createElement(App))
-);
+new Vue({
+    el: '#root',
+    render: h => h(App)
+});

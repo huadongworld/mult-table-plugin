@@ -10,7 +10,7 @@
 ├── public
 │   └── index.html
 ├── src
-│   ├── App.js // 主要组件
+│   ├── App.vue // 主要组件
 │   ├── bitableApp.ts // 实例化 sdk
 │   ├── index.js // 入口文件
 │   └── utils.js // 工具方法
