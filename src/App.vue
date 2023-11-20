@@ -1,8 +1,6 @@
 <template>
   <div>
-    <h2>
-      <a href="https://wiki-migrate.lzpsap1.com/index">任务管理小应用</a>
-    </h2>
+    <h2>任务管理小应用</h2>
     <div>
       <span>描述：</span>
       <span>{{ description }}</span>
@@ -10,12 +8,6 @@
     <div>
       <span>执行人：</span>
       <span>{{ userName }}</span>
-    </div>
-    <div>
-      <span>日历：</span>
-      <span>
-        <a href="https://applink.feishu.cn/client/calendar/open">跳转日历</a>
-      </span>
     </div>
     <div>
       <span>完成状态：</span>
@@ -26,21 +18,28 @@
       <span>网址：</span>
       <span>{{ address }}</span>
     </div>
-    <hr />
+    <br/>
     <div>
-      <button v-bind:class="{ 'btn-danger': completed, 'btn-primary': !completed }" @click="toggleCompleted">
+      <el-button size="mini" v-bind:class="{ 'btn-danger': completed, 'btn-primary': !completed }" @click="toggleCompleted">
         {{ completed ? '撤销完成任务' : '完成任务' }}
-      </button>
+      </el-button>
+    </div>
+    <hr/>
+    <div class="buttons-container">
+      <router-link to="/AppCalendar">
+        <el-button type="primary" size="small">Confirm</el-button>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
-import { bitable } from "@lark-opdev/block-bitable-api";
-import { getCurrentTask, setCompleted } from "./utils";
+import {bitable} from "@lark-opdev/block-bitable-api";
+import {getCurrentTask, setCompleted} from "./utils";
 import {
   Toast,
 } from "@douyinfe/semi-ui";
+import './app.css';
 
 export default {
   data() {
@@ -53,7 +52,7 @@ export default {
   },
   mounted() {
     this.loadTask();
-    bitable.base.onSelectionChange(({ data }) => this.loadTask());
+    bitable.base.onSelectionChange(({data}) => this.loadTask());
   },
   methods: {
     async loadTask() {
